@@ -10,8 +10,25 @@ friend_favorites = [
     ["Carlie", ["nerds", "sour patch kids", "laffy taffy" ]]
 ]
 '''
+friend_favorites = [
+    ["Sally", ["lollipop", "bubble gum", "laffy taffy" ]],
+    ["Bob", ["milky way", "licorice", "lollipop" ]],
+    ["Arlene", ["chocolate bar", "milky way", "laffy taffy" ]],
+    ["Carlie", ["nerds", "sour patch kids", "laffy taffy" ]]
+]
+
 def get_friends_favorite_candy_count(favorites):
-    pass
+    fav_candy_freq = {}
+
+    for friend in friend_favorites:
+        for candy in friend[1]:
+            if candy in fav_candy_freq:
+                fav_candy_freq[candy] += 1
+            else:
+                fav_candy_freq[candy] = 1
+    
+    return fav_candy_freq
+        
 
 '''
 2. 
@@ -27,8 +44,16 @@ friend_favorites = [
 ]
 '''
 def create_new_candy_data_structure(data):
-    pass 
+    candy_info = {}
 
+    for friend in friend_favorites:
+        for candy in friend[1]:
+            candy_info[candy] = []
+            candy_info[candy].append(friend[0])
+    
+    return candy_info
+
+create_new_candy_data_structure(friend_favorites)
 '''
 3. 
 In `get_friends_who_like_specified_candy()`, return a tuple of 
